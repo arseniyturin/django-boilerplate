@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang='en'>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <title>{{ title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'website/style.css' %}" type="text/css" media="screen">
+</head>
+<body>
+    <div id="container">
+    <div id="header">
+        <a {% if request.path == '/' %}class="active"{% endif %} href="/">Home</a>
+        <a {% if request.path == '/contact/' %}class="active"{% endif %} href="/contact">Contact</a>
+        <a {% if request.path == '/about/' %}class="active"{% endif %} href="/about">About</a>
+    </div>
+    <div id="content">
+        <h1>{{ title }}</h1>
+        {% block content %}{% endblock content %}
+    </div>
+    <div id="footer">FOOTER</div>
+    </div>
+</body>
+</html>
